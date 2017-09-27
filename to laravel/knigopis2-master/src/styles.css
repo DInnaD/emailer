@@ -1,0 +1,143 @@
+/* You can add global styles to this file, and also import other style files */
+.loader {
+    height: 0.8rem;
+    width: 0.3rem;
+    display: inline-block;
+    animation: rotate 3s infinite ease-out;
+    border: 2px solid #444;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-radius: 50%;
+    background-color: rgba(255,0,0,0.2);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(2840deg);
+    }
+}
+
+@media (min-width: 991px) {
+    .book-box:hover .hidden-md-down.book-title-btns {
+        display: inline-block;
+    }
+
+    .book-box .hidden-md-down.book-title-btns {
+        display: none;
+    }
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+body {
+    min-height: 75rem;
+    padding-top: 5.5rem;
+}
+.footer {
+    padding-top: 1.5rem;
+    color: #777;
+    border-top: .05rem solid #e5e5e5;
+}
+
+.container {
+    max-width: 1024px;
+}
+
+@media (max-width: 575px) {
+    .navbar-toggleable > .container {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .navbar-toggleable .navbar-nav .dropdown-menu {
+        position: absolute;
+        float: left;
+    }
+}
+
+.user-photo {
+    height: 20px;
+    width: 20px;
+}
+.knigopis-logo {
+    display: block;
+    width: 123px;
+    height: 30px;
+    background-image: url(assets/knigopis-black-logo.png);
+}
+
+.color-mix {
+    color: #B2B1B1;
+    color: #B29575;
+    color: #796149;
+    color: #2A1617;
+
+
+}
+
+body {
+    color: #3d3938;
+    background-image: url(assets/fon.png);
+}
+
+a {
+    color: #1f5092;
+}
+
+a:hover {
+    color: #0e51dc;
+}
+
+.navbar-nav .nav-link {
+    font-size: 0.95rem;
+}
+
+nav.navbar {
+    box-shadow: 0 0px 15px rgba(0,0,0,0.6);
+}
+
+.bg-faded {
+     background-color: #f5f8fd;
+}
+
+.jumbotron {
+    background-color: #eff4fa;
+}
+.features p {
+    word-wrap: break-word;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #b85f51;
+    border-color: #b85f51;
+}
+.btn-primary:hover {
+    background-color: #9e2d1b;
+    border-color: #9e2d1b;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #c58f87;
+    border-color: #c58f87;
+}
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #b85f51;
+}
+.star {
+    color: #9e2d1b;
+    cursor: pointer;
+}
+
+.ulogin-buttons-container {
+    vertical-align: middle !important;
+    height: 20px !important;
+}

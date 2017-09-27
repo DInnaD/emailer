@@ -1,0 +1,76 @@
+<nav class="navbar navbar-light bg-faded navbar-toggleable fixed-top">
+    <div class="container d-flex ml-xs-0 mr-xs-0">
+        <a class="navbar-brand knigopis-logo" [routerLink]="['/']"></a>
+
+        <ul class="navbar-nav" *ngIf="isAuthorized">
+            <li class="nav-item hidden-xs-down">
+                <a class="nav-link" routerLinkActive="active" [routerLink]="[currentUser.nickname, 'books']" [queryParams]="{u: currentUser.id}">Мой список<span class="hidden-sm-down"> книг</span></a>
+            </li>
+            <li class="nav-item hidden-xs-down">
+                <a class="nav-link" routerLinkActive="active" [routerLink]="['/books', 'add']">Добавить<span class="hidden-sm-down"> книгу</span></a>
+            </li>
+            <li class="nav-item hidden-sm-down">
+                <a class="nav-link" routerLinkActive="active" [routerLink]="['/wish', 'list']">Список к прочтению</a>
+            </li>
+            <li class="nav-item hidden-md-down">
+                <a class="nav-link" routerLinkActive="active" [routerLink]="['/wish', 'edit', 'add']">Добавить к прочтению</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" *ngIf="isAuthorized">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center"
+                    href
+                    data-toggle="dropdown">
+                    <img [src]="currentUser.photo" alt="User avatar" class="user-photo mr-1">
+                    {{currentUser?.nickname}}<sup *ngIf="currentUser.booksCount">{{currentUser.booksCount}}</sup>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item hidden-sm-up" routerLinkActive="active" [routerLink]="[currentUser.nickname, 'books']" [queryParams]="{u: currentUser.id}">Мой список книг</a>
+                    <a class="dropdown-item hidden-sm-up" routerLinkActive="active" [routerLink]="['/books', 'add']">Добавить книгу</a>
+                    <a class="dropdown-item hidden-md-up" routerLinkActive="active" [routerLink]="['/wish', 'list']">Список к прочтению</a>
+                    <a class="dropdown-item hidden-lg-up" routerLinkActive="active" [routerLink]="['/wish', 'edit', 'add']">Добавить к прочтению</a>
+
+                    <div class="dropdown-divider hidden-lg-up"></div>
+                    <a class="dropdown-item" *ngIf="currentUser.booksCount" href="http://api.knigopis.com/users/export-books">Экспорт</a>
+                    <a class="dropdown-item" [routerLink]="['settings']">Настройки</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" (click)="exit()">Выход</a>
+                </div>
+            </li>
+        </ul>
+
+        <div class="d-md-flex justify-content-start align-items-center" *ngIf="!isAuthorized">
+            <div class="mr-1">Войти через:</div>
+            <div id="uLogin" data-ulogin="display=small;theme=classic;fields=first_name,last_name;providers=vkontakte,odnoklassniki,mailru,facebook;hidden=other;redirect_uri=;mobilebuttons=0;callback=initAuth"></div>
+        </div>
+
+
+    </div>
+
+
+
+</nav>
+
+
+
+<div class="container">
+
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+
+    <footer class="footer">
+        <p class="small">
+            © <span>Книгопись</span> 2015-{{year}} — <span>дневник читателя, сервис учёта прочитанных книг</span>.
+            <br>
+            <a href="mailto:info@knigopis.com" target="_blank">info@knigopis.com</a>
+                            — <span>адрес обратной связи.</span>
+
+            <a target="_blank" href="http://vk.com/knigopiscom">Vk</a>,
+            <a target="_blank" href="https://twitter.com/knigopiscom">Twitter</a>,
+            <a target="_blank" href="https://github.com/knigopis/repo.knigopis.com">GitHub</a>
+        </p>
+    </footer>
+
+</div>
+<!-- /container -->
